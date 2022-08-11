@@ -5,35 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/tab-icon.png" type="image/x-icon">
     <script src="./fetch.js"></script>
     <script src="./script.js"></script>
     <title>Home Page</title>
 </head>
 
 <body>
-
-    <nav>
-        <div class="site-title">
-            <a href="/">
-                <h1>Crypto Finder</h1>
-            </a>
-            <p>Crypro Finder Site</p>
+    <header>
+        <nav>
+            <div class="site-title">
+                <a href="/">
+                    <h1>Crypto Finder</h1>
+                </a>
+                <p>Crypro Finder Site</p>
+            </div>
+            <ul>
+                <li><a href='/'>Crypto</a></li>
+                <li><a href='/about'>About</a></li>
+                <li><a href='/contact'>Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="search-container">
+        <div class="search-box">
+            <input class="search-input" type="text" placeholder="Search">
+            <button class="search-btn" href="#">
+                <i class="fa fa-search"></i>
+            </button>
         </div>
-        <ul>
-            <li><a href='/'>Crypto</a></li>
-            <li><a href='/about'>About</a></li>
-            <li><a href='/contact'>Contact</a></li>
-        </ul>
-    </nav>
-
-
-
-    <section class="search-box">
-        <input class="search-input" type="text" name="" placeholder="Search">
-        <button class="search-btn" href="#">
-            <i class="fa fa-search"></i>
-        </button>
     </section>
 
     <section class="results-container">
@@ -44,7 +45,7 @@
         <div class="box">
             <div class="head-box">
                 <div class="img-title">
-                    <div class="div-img"><img src="../images/bitcoinImg.jpg"></div>
+                    <img src="./assets/images.jpg">
                     <p class="name">Bitcoin<span>BTC</span></p>
                 </div>
                 <p class="percent-change-coin">5.9400 %</p>
@@ -63,6 +64,6 @@
         </div>
     </section>
 
+    <script src="https://use.fontawesome.com/cf3935a44e.js"></script>
 </body>
-
 </html>
