@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <script src="./fetch.js" defer></script>
-    <script src="./script.js" defer></script>
-    <title>Crypto Finder</title>
+    <script src="./fetch.js"></script>
+    <script src="./script.js"></script>
+    <title>Home Page</title>
 </head>
 
 <body>
@@ -23,17 +23,44 @@
         <ul>
             <li><a href='/'>Crypto</a></li>
             <li><a href='/about'>About</a></li>
-            <li><a href='/blogs/create'>Contact</a></li>
+            <li><a href='/contact'>Contact</a></li>
         </ul>
     </nav>
 
-    <section class="search">
-        <input type="text" name="" id="" placeholder="type your currency">
-        <i></i>
+
+
+    <section class="search-box">
+        <input class="search-input" type="text" name="" placeholder="Search">
+        <button class="search-btn" href="#">
+            <i class="fa fa-search"></i>
+        </button>
     </section>
 
-    <section class="coins">
+    <section class="results-container">
 
+    </section>
+
+    <section class="coins-container">
+        <div class="box">
+            <div class="head-box">
+                <div class="img-title">
+                    <div class="div-img"><img src="../images/bitcoinImg.jpg"></div>
+                    <p class="name">Bitcoin<span>BTC</span></p>
+                </div>
+                <p class="percent-change-coin">5.9400 %</p>
+            </div>
+            <div class="content-box">
+                <div class="coin-details">
+                    <p>468.2B$</p><span>Market Cap</span>
+                </div>
+                <div class="coin-details">
+                    <p>24491.7$</p><span>Price</span>
+                </div>
+                <div class="coin-details">
+                    <p>17.5B$</p><span>Volume</span>
+                </div>
+            </div>
+        </div>
     </section>
 
 </body>

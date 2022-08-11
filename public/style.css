@@ -13,3 +13,253 @@
     --beige: #F7D08A;
     --navy: #31087B;
 }
+
+
+/* Styling Landing Page */
+main {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+.index-img{
+    width:100vh;
+    margin-top:100px;
+    margin-left: 50px;
+}
+
+.container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100vh;
+}
+
+.headline{
+    font-size: 40px;
+    line-height:55px;
+    font-family: 'Courgette','Poppins','Times New Roman', Times, serif;
+    color: var(--navy);
+    margin-bottom: 50px;
+}
+
+.btn{
+    width: 200px;
+    padding: 20px;
+    background-color: var(--brown);
+    border: none;
+    border-radius: 4%;
+    margin-top: 30px;
+}
+
+a.locate {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.btn:hover{
+    background-color: var(--orange);
+    color: #000;
+    transform:scale(1.1);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+/* End Styling Landing page */
+
+
+/* START Styling HomePage page */
+body {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-family: 'Noto Serif', serif;
+}
+
+p,
+h1,
+h2,
+h3,
+a,
+ul {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #222;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    text-transform: uppercase;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+nav li {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+nav h1 {
+    font-size: 2.5em;
+
+}
+
+nav p,
+nav a {
+    color: #777;
+    font-weight: 300;
+}
+
+/* END Styling HomePage page */
+
+
+/* START Search */
+.search-box {
+  background: #bac3cf;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.search-input {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+}
+
+.search-btn {
+  color: white;
+  background-color: #667a95;
+  width: 40px;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+}
+
+.search-box:hover > .search-btn {
+  background-color: #40616d;
+  color: #2f3640;
+}
+
+/* END Search */
+
+/* START Coins Container */
+.coins-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: center;
+  padding: 8px;
+  margin-top: 16px;
+  border-radius: 15px;
+    background-image: url(../images/Group2.png);
+font-weight: 600;
+  /* background-image: url(../images/box-background.png); */
+  /* border: 1px solid #f5a200; */
+  box-shadow: 2px 1px 10px #000a416c;
+  
+}
+
+.head-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.content-box {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+.img-title {
+  display: flex;
+}
+.name,
+.percent-change-coin {
+  padding-left: 8px;
+  color: #fff;
+
+  font-size: 15px;
+  margin-right: 15px;
+}
+.name span,
+.percent-change-coin span {
+  color: var(--title-color);
+}
+
+.name,
+.percent-change-coin {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  top: 64px;
+  right: 0;
+  padding: 16px;
+  border-radius: 15px;
+  background: var(--body-color);
+  border: 1px solid var(--title-color);
+  display: none;
+    font-weight: 600;
+
+}
+.list li {
+  display: flex;
+  align-items: center;
+  padding-bottom: 8px;
+  
+}
+.list span {
+  color: var(--text-color);
+  font-size: 12px;
+  padding-left: 8px;
+    font-weight: 600;
+
+}
+.head-box img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.coin-details {
+  font-size: 13px;
+  color: var(--text-color);
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.coin-details span {
+  color: #f5a200;
+}
