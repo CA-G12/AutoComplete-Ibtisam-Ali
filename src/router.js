@@ -1,59 +1,24 @@
-const fs = require('fs');
-const path = require('path');
+const allHandlers = require('./Handlers/allHandlers');
 
-const router = (req, res)=>{
+const router = (req, res) => {
     const endpoint = req.url;
     const method = req.method;
-    const mimeType = {
-        css: 'text/css',
-        json: 'application/json',
-        js: 'application/javascript',
-        png: 'image/png',
-        jpg: 'image/jpg',
-    }
+    
     if(endpoint === '/' && method === 'GET'){
-        const filePath = path.join(__dirname, '..', 'public', 'index.html');
-        fs.readFile(filePath, (err, file)=>{
-            if(err){
-                res.writeHead(500);
-                res.write('Internal Server Error');
-                res.end();
-            } else{
-                res.writeHead(200, {'Content-Type': 'text/html'});
-                res.write(file);
-                res.end();
-            }
-        })
+        allHandlers.landingHandler(req, res);
     } 
     else if(endpoint.includes('/homePage') && method === 'GET'){
-        const filePath = path.join(__dirname, '..', 'public', 'homePage.html');
-        fs.readFile(filePath, (err, file)=>{
-            if(err){
-                res.writeHead(500);
-                res.write('Internal Server Error');
-                res.end();
-            } else{
-                res.writeHead(200, {'Content-Type': 'text/html'});
-                res.write(file);
-                res.end();
-            }
-        })
+        allHandlers.homeHandler(req, res);
     } 
     else if (endpoint.includes('style') || endpoint.includes('index') || endpoint.includes('images') || endpoint.includes('index-img') || endpoint.includes('tab-icon') && method === 'GET'){
-        const extension= endpoint.split('.')[1];
-        const filePath = path.join(__dirname, '..', 'public', endpoint);
-        fs.readFile(filePath, (err, file)=>{
-            if(err){
-                res.writeHead(500);
-                res.write('Internal Server Error');
-                res.end();
-            } else{
-                res.writeHead(200, {'Content-Type': mimeType[extension]});
-                res.write(file);
-                res.end();
-            }
-        })
-    } 
+        allHandlers.endpointHandler(req, res);
+    }
+    else if(endpoint.includes('/search') && method === 'POST'){
+        allHandlers.searchHandler(req, res);
+    }
+    else if(endpoint.includes('/selectResult') && method === 'POST'){
+        allHandlers.selectHandler(req, res);
+    }
     else {
         res.writeHead(404, { "content-type": "text/html" });
         res.end(`<h1>Page not Found</h1>`);

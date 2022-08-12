@@ -1,0 +1,7 @@
+const renderSuggestions = () => {
+
+}
+
+const renderSelectedResult = () => {
+
+}
