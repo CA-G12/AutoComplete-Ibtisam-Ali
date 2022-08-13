@@ -65,7 +65,7 @@ const endpointHandler = (req, res) => {
 //? ================ searchHandler ================
 
 const searchHandler = (req, res, endpoint) => {
-    const trueEndpoint = endpoint.slice(0, endpoint.lastIndexOf('/'));
+    // const trueEndpoint = endpoint.slice(0, endpoint.lastIndexOf('/'));
     const searchValue = endpoint.slice(endpoint.lastIndexOf('/') + 1);
     const filePath = path.join(__dirname, "./cryptos.json");
     fs.readFile(filePath, (err, file) => {
@@ -73,22 +73,18 @@ const searchHandler = (req, res, endpoint) => {
             res.writeHead(500);
             res.end("Server Error");
         } else {
-            const suggestions = JSON.parse(file).filter(crypto => {
+            const suggestedCoins = JSON.parse(file).filter(crypto => {
                 return crypto.name.toLowerCase().includes(searchValue.toLowerCase());
             })
-            console.log(3, suggestions);
-            // console.log(2, JSON.stringify(suggestions));
+            console.log('suggestedCoins on back:', suggestedCoins);
             res.writeHead(200, { "Content-Type": "application/json" });
-            
-            res.end(JSON.stringify(suggestions));
+
+            res.end(JSON.stringify(suggestedCoins));
         }
     });
 }
 
-
 //? ================ selectHandler ================
-
-
 
 module.exports = {
     landingHandler,
