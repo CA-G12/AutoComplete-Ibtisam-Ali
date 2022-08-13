@@ -1,5 +1,7 @@
 const searchInput = document.querySelector('.search-input')
 const suggestionsContainer = document.querySelector('.suggestions-container');
+const coinsContainer = document.querySelector('.coins-container');
+
 
 searchInput.addEventListener('keyup', () => {
     fetch(`/search/${searchInput.value}`, 'GET', renderSuggestedCoins)
@@ -11,9 +13,9 @@ const renderSuggestedCoins = (data) => {
         const ul = document.createElement('ul');
         ul.setAttribute('class', 'suggestions-list');
         suggestionsContainer.appendChild(ul);
-        ul.addEventListener('click', () =>{
+        ul.addEventListener('click', () => {
             // console.log(coinName.textContent);
-            const url = `https://api.coincap.io/v2/assets/${coinName.textContent.toLowerCase()}`;
+            const url = `https://api.coincap.io/v2/assets/${privateCoinID.textContent.toLowerCase()}`;
             fetch(url, 'GET', renderSelectedCoin)
         })
 
@@ -28,13 +30,19 @@ const renderSuggestedCoins = (data) => {
 
         const symbol = document.createElement('span');
         symbol.setAttribute('class', 'span')
-        symbol.textContent= coin.Symbol;
+        symbol.textContent = coin.Symbol;
         li.appendChild(symbol);
 
         const coinName = document.createElement('span');
         coinName.setAttribute('class', 'span');
-        coinName.textContent= coin.name;
+        coinName.textContent = coin.name;
         li.appendChild(coinName);
+
+        // only for using id in search query, rather than writing long, complicated lines of code.
+        const privateCoinID = document.createElement('span');
+        privateCoinID.style.display = 'none';
+        privateCoinID.textContent = coin.id;
+        li.appendChild(privateCoinID);
     })
 }
 
@@ -51,33 +59,32 @@ const renderSuggestedCoins = (data) => {
 // }
 // test();
 
-// const selectCoin = (data) => {
-//     console.log(data,111);
-//     // const selectedCoin = data.find(coin => coin.name.toLowerCase().includes(value.toLowerCase()));
-//     // renderSelectedCoin(selectedCoin);
-// }
 
-// const renderSelectedCoin = (data) => {
-//     console.log('selected coin is ready to be rendered:', data);
-// `<div class="box">
-//             <div class="head-box">
-//                 <div class="img-title">
-//                     <img src="./assets/images.png">
-//                     <p class="name">Bitcoin<span>BTC</span></p>
-//                 </div>
-//                 <p class="percent-change-coin">5.9400 %</p>
-//             </div>
-//             <div class="content-box">
-//                 <div class="coin-details">
-//                     <p>468.2B$</p><span>Market Cap</span>
-//                 </div>
-//                 <div class="coin-details">
-//                     <p>24491.7$</p><span>Price</span>
-//                 </div>
-//                 <div class="coin-details">
-//                     <p>17.5B$</p><span>Volume</span>
-//                 </div>
-//             </div>
-//         </div>`
-// }
+
+const renderSelectedCoin = (data) => {
+    console.log(1, data);
+    coinsContainer.innerHTML =
+        `
+        <div class="box">
+            <div class="head-box">
+                <div class="img-title">
+                    <img src="./assets/images.png">
+                    <p class="name">${data.data.name}<span>${data.data.symbol}</span></p>
+                </div>
+                <p class="percent-change-coin">${data.data.changePercent24Hr.toString().split('.')[0]}%</p>
+            </div>
+            <div class="content-box">
+                <div class="coin-details">
+                    <p>${data.data.marketCapUsd.toString().split('.')[0]}$</p><span>Market Cap</span>
+                </div>
+                <div class="coin-details">
+                    <p>${data.data.priceUsd.toString().split('.')[0]}.${data.data.priceUsd.toString().split('.')[1].slice(0, 2)}$</p><span>Price</span>
+                </div>
+                <div class="coin-details">
+                    <p>${data.data.volumeUsd24Hr.toString().split('.')[0]}$</p><span>Volume</span>
+                </div>
+            </div>
+        </div>
+        `
+}
 
