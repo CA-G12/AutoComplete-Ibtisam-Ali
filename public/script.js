@@ -16,9 +16,11 @@ const renderSuggestedCoins = (data) => {
         suggestionsContainer.appendChild(ul);
 
         // handling the functionality when clicking on a Selected Suggestion
-        ul.addEventListener('click', () => {
+        ul.addEventListener('click', (e) => {
             const url = `https://api.coincap.io/v2/assets/${ul.id}`;
-            fetch(url, 'GET', renderSelectedCoin)
+            suggestionsContainer.textContent = '';
+            searchInput.value = e.target.textContent;
+            fetch(url, 'GET', renderSelectedCoin);
         })
 
         const li = document.createElement('li');
