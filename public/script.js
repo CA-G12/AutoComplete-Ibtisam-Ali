@@ -14,7 +14,6 @@ const renderSuggestedCoins = (data) => {
         ul.setAttribute('class', 'suggestions-list');
         suggestionsContainer.appendChild(ul);
         ul.addEventListener('click', () => {
-            // console.log(coinName.textContent);
             const url = `https://api.coincap.io/v2/assets/${privateCoinID.textContent.toLowerCase()}`;
             fetch(url, 'GET', renderSelectedCoin)
         })
