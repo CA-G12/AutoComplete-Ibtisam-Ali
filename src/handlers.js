@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
+const mimeType = require('mime-types');
 //? ================ landingHandler ================
 
 const landingHandler = (req, res) => {
@@ -41,21 +42,13 @@ const homeHandler = (req, res) => {
 const endpointHandler = (req, res) => {
     const endpoint = req.url;
     const filePath = path.join(__dirname, '..', 'public', endpoint);
-    const extension = path.extname(filePath);
-    const mimeType = {
-        '.css': 'text/css',
-        '.json': 'application/json',
-        '.js': 'application/javascript',
-        '.png': 'image/png',
-        '.jpg': 'image/jpg',
-    }
     fs.readFile(filePath, (err, file) => {
         if (err) {
             res.writeHead(500);
             res.write('Internal Server Error');
             res.end();
         } else {
-            res.writeHead(200, { 'Content-Type': mimeType[extension] });
+            res.writeHead(200, { 'Content-Type': mimeType.lookup(endpoint) });
             res.write(file);
             res.end();
         }
