@@ -17,7 +17,7 @@
 /* Styling Landing Page */
 
 .anim-coin {
-  background-image: url(./assets/images.jpg);
+  background-image: url(./assets/images.png);
   background-size: auto 100%;
   width: 88px;
   height: 125px;
@@ -140,7 +140,6 @@ nav a {
 }
 
 /* END Styling HomePage page */
-
 /* Start Styling Search */
 .search-container {
   height: 20%;
@@ -148,11 +147,12 @@ nav a {
 
 .search-box {
   position: absolute;
-    left: 70%;
-    transform: translate(-50%,50%);
-    background: var(--navy);
-    border-radius: 40px;
-    padding: 10px;
+  left: 50%;
+  transform: translate(-50%,50%);
+  background: var(--navy);
+  border-radius: 40px;
+  padding: 10px;
+  height:61px;
 }
 
 .search-box:hover > .search-input {
@@ -202,6 +202,51 @@ nav a {
 
 /* End styling search box */
 
+/* Start Styling suggestions Container */
+.suggestions-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  align-items: center;
+}
+
+.suggestions-list {
+  list-style-type: none;
+  border: 1px solid var(--beige);
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  width: 450px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.suggestions-list:hover{
+  border: none;
+  box-shadow: 0px 0px 15px var(--orange);
+}
+
+.img{
+  height: 65px;
+}
+
+.span {
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--navy);
+}
+
+.suggestion-item{
+    width: 520px;
+    margin-top: 20px;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+/* End Styling suggestions Container */
 
 /* Start Styling Coins Container */
 .coins-container {
@@ -218,7 +263,7 @@ nav a {
   padding: 8px;
   margin-top: 16px;
   border-radius: 15px;
-  background-image: url(../images/Group2.png);
+  /* background-image: url(../images/Group2.png); */
   font-weight: 600;
   border: 1px solid var(--beige);
   color: #000;
@@ -274,3 +319,20 @@ nav a {
   color: #f5a200;
 }
 /* End Styling coins details  */
+
+footer {
+  display: flex;
+  background-color:rgb(255, 245, 236);
+  color: #000;
+  height: 80px;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 16px;
+}
+
+footer p {
+  margin-bottom: 16px;
+  color: var(--navy);
+  font-size: 18px;
+  font-weight: bold;
+}
