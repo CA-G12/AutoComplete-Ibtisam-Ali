@@ -15,24 +15,6 @@
 }
 
 /* Styling Landing Page */
-
-.anim-coin {
-  background-image: url(./assets/images.png);
-  background-size: auto 100%;
-  width: 88px;
-  height: 125px;
-  animation-name: fly-cycle;
-  animation-timing-function: steps(10);
-  animation-iteration-count: infinite;
-  animation-duration: 1s;
-}
-
-@keyframes fly-cycle {
-  100% {
-  background-position: -900px 0;
-  } 
-}
-
 main {
     display: flex;
     flex-wrap: nowrap;
@@ -86,63 +68,110 @@ a.locate {
     cursor: pointer;
 }
 
+.anim-coin {
+  background-image: url(./assets/images.png);
+  background-size: auto 100%;
+  width: 88px;
+  height: 125px;
+  margin-top: 30px;
+  margin-left: 30px;
+  animation-name: fly-cycle;
+  animation-timing-function: steps(10);
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+@keyframes fly-cycle {
+  100% {
+  background-position: -900px 0;
+  } 
+}
+
 /* End Styling Landing page */
 
-
 /* START Styling HomePage page */
-body {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
-    font-family: 'Noto Serif', serif;
-}
-
-p,
-h1,
-h2,
-h3,
-a,
-ul {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    color: #222;
-}
-
 nav {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 60px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
-    text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 50px;
+  background-color: var(--navy);
 }
 
-nav ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+nav img {
+  width: 70px;
 }
 
-nav li {
-    list-style-type: none;
-    margin-left: 20px;
+ul {
+  list-style-type: none;
 }
 
-nav h1 {
-    font-size: 2.5em;
+li {
+  float: left;
 }
 
-nav p,
-nav a {
-    color: #777;
-    font-weight: 300;
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
+li a:hover {
+  background-color: var(--orange);
+}
 /* END Styling HomePage page */
+
+/* Styling Content Section */
+.content{
+  padding: 70px 50px;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  background-image: url(https://www.mnp.ca/-/media/images/mnp/service/enterprise-risk/ers-content-campaign--bitcoin-executive-summary--header-1-jpg.jpg) ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment:fixed ;
+  padding-bottom: 3rem;
+  color: #fff;
+}
+
+.content  h1{
+  margin-top:50px;
+}
+
+.content p {
+  letter-spacing: 1px;
+  max-width: 500px;
+  line-height: 30px;
+  margin-top: 30px;
+}
+
+.btnn {
+  width: 200px;
+  padding: 20px;
+  background-color: var(--orange);
+  border: none;
+  border-radius: 4%;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+.btnn:hover{
+  background-color: var(--navy);
+  box-shadow: 0 3px var(--navy);
+  transform:scale(1.1);
+  transition: all 0.3s;
+  cursor: pointer;
+  color: #fff;
+}
+/* End Styling Content Section */
+
 /* Start Styling Search */
 .search-container {
-  height: 20%;
+  height: 10%;
 }
 
 .search-box {
@@ -190,16 +219,14 @@ nav a {
   transition: 0.4s;
   line-height: 40px;
   width: 0px;
-
 }
 
 @media screen and (max-width: 620px) {
-.search-box:hover > .search-input {
-  width: 150px;
-  padding: 0 6px;
+  .search-box:hover > .search-input {
+    width: 150px;
+    padding: 0 6px;
+  }
 }
-}
-
 /* End styling search box */
 
 /* Start Styling suggestions Container */
@@ -238,21 +265,22 @@ nav a {
 
 .suggestion-item{
     width: 520px;
-    margin-top: 20px;
-    padding: 10px 50px;
+    margin-top: 10px;
+    padding: 0px 50px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
-
 /* End Styling suggestions Container */
 
 /* Start Styling Coins Container */
 .coins-container {
+  padding: 0 50px;
   display: flex;
   flex-direction: column;
   margin-top: 24px;
+  justify-content: center;
+  align-items: center;
 }
 
 .box {
@@ -262,11 +290,11 @@ nav a {
   justify-content: center;
   padding: 8px;
   margin-top: 16px;
+  width: 80%;
   border-radius: 15px;
-  /* background-image: url(../images/Group2.png); */
   font-weight: 600;
   border: 1px solid var(--beige);
-  color: #000;
+  color: var(--navy);
 }
 
 .box:hover{
@@ -300,7 +328,7 @@ nav a {
 
 .name, .percent-change-coin {
   padding-left: 8px;
-  color: #000;
+  color: var(--navy);
   font-size: 17px;
   margin-right: 15px;
   display: flex;
@@ -320,6 +348,7 @@ nav a {
 }
 /* End Styling coins details  */
 
+/* Start Styling Footer */
 footer {
   display: flex;
   background-color:rgb(255, 245, 236);
@@ -328,6 +357,8 @@ footer {
   justify-content: center;
   align-items: flex-end;
   margin-top: 16px;
+  bottom: 0;
+  width: 100%;
 }
 
 footer p {
@@ -336,3 +367,4 @@ footer p {
   font-size: 18px;
   font-weight: bold;
 }
+/* End Styling Footer */
