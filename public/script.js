@@ -12,9 +12,12 @@ const renderSuggestedCoins = (data) => {
     data.forEach(coin => {
         const ul = document.createElement('ul');
         ul.setAttribute('class', 'suggestions-list');
+        ul.id = coin.id;
         suggestionsContainer.appendChild(ul);
+
+        // handling the functionality when clicking on a Selected Suggestion
         ul.addEventListener('click', () => {
-            const url = `https://api.coincap.io/v2/assets/${privateCoinID.textContent.toLowerCase()}`;
+            const url = `https://api.coincap.io/v2/assets/${ul.id}`;
             fetch(url, 'GET', renderSelectedCoin)
         })
 
@@ -36,29 +39,8 @@ const renderSuggestedCoins = (data) => {
         coinName.setAttribute('class', 'span');
         coinName.textContent = coin.name;
         li.appendChild(coinName);
-
-        // only for using id in search query, rather than writing long, complicated lines of code.
-        const privateCoinID = document.createElement('span');
-        privateCoinID.style.display = 'none';
-        privateCoinID.textContent = coin.id;
-        li.appendChild(privateCoinID);
     })
 }
-
-// function test(){
-//     const suggestedCoins = Array.from(document.querySelectorAll('.suggestions-list'));
-//     if(suggestedCoins){
-//         suggestedCoins.forEach( singleSuggestion => {
-//             singleSuggestion.addEventListener('click', (e) => {
-//                 console.log(singleSuggestion);
-//                 // fetch(url, 'GET', selectCoin, e.target.value)
-//             })
-//         })
-// }
-// }
-// test();
-
-
 
 const renderSelectedCoin = (data) => {
     console.log(1, data);
