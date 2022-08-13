@@ -1,6 +1,5 @@
 const handlers = require('./handlers');
 
-
 const router = (req, res) => {
     const endpoint = req.url;
     const method = req.method;
@@ -18,9 +17,6 @@ const router = (req, res) => {
     else if (endpoint.includes('/search') && method === 'GET') {
         handlers.searchHandler(req, res, endpoint);
     }
-    // else if(endpoint.includes('/selectResult') && method === 'POST'){
-    //     handlers.selectHandler(req, res);
-    // }
     else {
         res.writeHead(404, { "content-type": "text/html" });
         res.end(`<h1>Page not Found</h1>`);
