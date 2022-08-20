@@ -1,11 +1,7 @@
 const searchInput = document.querySelector('.search-input')
 const suggestionsContainer = document.querySelector('.suggestions-container');
 const coinsContainer = document.querySelector('.coins-container');
-
-
-searchInput.addEventListener('keyup', () => {
-    fetch(`/search/${searchInput.value}`, 'GET', renderSuggestedCoins)
-})
+const spinner = document.querySelector('#spinner');
 
 const renderSuggestedCoins = (data) => {
     suggestionsContainer.textContent = '';
@@ -70,4 +66,3 @@ const renderSelectedCoin = (data) => {
         </div>
         `
 }
-

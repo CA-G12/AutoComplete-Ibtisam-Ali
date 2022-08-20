@@ -2,7 +2,7 @@
  This is a simple web app that has a search bar with autocomplete functionality. You can pick your favorite coin from the ones shown in the search bar ,and get all the details that you need.
  
  ## Browse our site
-##[Live Link](https://auto-complete-ibtisam-ali.herokuapp.com/)
+## [Live Link](https://auto-complete-ibtisam-ali.herokuapp.com/)
 
 ## Used Technologies :coin:
 :curly_loop: **HTML5** <br>
