@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="./assets/tab-icon.png" type="image/x-icon">
-    <script src="./fetch.js" defer></script>
-    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="shortcut icon" href="/public/assets/tab-icon.png" type="image/x-icon">
+    <script src="/public/JS/dom.js" defer></script>
+    <script src="/public/JS/fetch.js" defer></script>
+    <script src="/public/JS/script.js" defer></script>
     <title> Home Page </title>
 </head>
 
 <body>
+    <div id="spinner">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
     <header>
         <nav>
-            <img src="./assets/tab-icon.png">
+            <img src="/public/assets/tab-icon.png">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#crypto">Crypto</a></li>
@@ -41,12 +45,14 @@
             </button>
         </div>
     </section>
+    
+    <section class="suggestions-container"></section>
 
-    <section class="suggestions-container">
+    <section class="coins-container">
         <div class="box">
             <div class="head-box">
                 <div class="img-title">
-                    <img src="./assets/images.png">
+                    <img src="/public/assets/images.png">
                     <p class="name">Bitocin<span>BTC</span></p>
                 </div>
                 <p class="percent-change-coin">5%</p>
@@ -64,8 +70,6 @@
             </div>
         </div>
     </section>
-
-    <section class="coins-container"></section>
 
     <footer id ='footer'>
         <p>Developed by Ali Shbair & Ibtisam Hemmo</p>
